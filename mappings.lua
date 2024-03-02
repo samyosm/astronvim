@@ -32,6 +32,17 @@ return {
     ["<leader>b"] = { name = "Buffers" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+    ["<leader>o"] = { "<cmd>Neotree toggle<cr>", desc = "Toggle Explorer" },
+    ["<leader>e"] = {
+      function()
+        if vim.bo.filetype == "neo-tree" then
+          vim.cmd.wincmd "p"
+        else
+          vim.cmd.Neotree "focus"
+        end
+      end,
+     desc = "Toggle Explorer Focus",
+    }
   },
   t = {
     -- setting a mapping to false will disable it
